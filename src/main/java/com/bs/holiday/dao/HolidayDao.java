@@ -9,8 +9,9 @@ import reactor.core.publisher.Mono;
 @Repository
 public class HolidayDao {
 
+    private final WebClient webClient = WebClient.create("https://public-holiday.p.rapidapi.com");
+
     public HolidayEntity[] getHolidayEntities(int year, CountryCode code) {
-        WebClient webClient = WebClient.create("https://public-holiday.p.rapidapi.com");
         Mono<HolidayEntity[]> result = webClient.get()
                 .uri("/"+ year + "/" + code)
                 .header("x-rapidapi-key", System.getenv("BS_HOLIDAY_API_KEY"))
