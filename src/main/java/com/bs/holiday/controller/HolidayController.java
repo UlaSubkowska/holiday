@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 @RestController
 public class HolidayController {
@@ -65,7 +66,7 @@ public class HolidayController {
 
     //TODO remove: temporary for bootstrap
     @GetMapping("/passing")
-    public HolidayEntity[] passing() {
+    public List<HolidayEntity> passing() {
         return holidayService.passing();
     }
 }

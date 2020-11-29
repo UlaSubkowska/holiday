@@ -9,9 +9,6 @@ import java.time.LocalDate;
 @Setter
 public class HolidayEntity {
     private LocalDate date;
-    private String localName;
     private String name;
     private CountryCode countryCode;
-    private boolean fixed;
-    private boolean global;
 }

@@ -10,7 +10,10 @@ public enum CountryCode {
     AD("Andorra"),
     AR("Argentina"),
     AU("Australia"),
-    AT("Austria");
+    AT("Austria"),
+
+    PL("Poland"),
+    US("United States");
 
     private final String countryName;
 }

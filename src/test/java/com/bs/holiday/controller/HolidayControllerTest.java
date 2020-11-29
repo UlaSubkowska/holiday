@@ -28,7 +28,7 @@ public class HolidayControllerTest {
 
     @Test
     public void getTheNextCommonHoliday_success() {
-        CommonHolidayDto commonHolidayDto = getCommonHoliday();
+        CommonHolidayDto commonHolidayDto = new CommonHolidayDto(LocalDate.of(2019, 3, 5), "Carnaval", "Huge carnaval");
         when(holidayService.getTheNextCommonHoliday(any(CountryCode.class), any(CountryCode.class), any(LocalDate.class)))
                 .thenReturn(commonHolidayDto);
 
@@ -40,9 +40,6 @@ public class HolidayControllerTest {
 
     @Test
     public void getTheNextCommonHoliday_badRequest_unsupportedCountryCode() {
-        when(holidayService.getTheNextCommonHoliday(any(CountryCode.class), any(CountryCode.class), any(LocalDate.class)))
-                .thenReturn(getCommonHoliday());;
-
         ResponseEntity<?> response = holidayController.getTheNextCommonHoliday("AQ", "AR", "2019-02-14");
 
         assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
@@ -51,20 +48,9 @@ public class HolidayControllerTest {
 
     @Test
     public void getTheNextCommonHoliday_badRequest_incorrectDateFormat() {
-        when(holidayService.getTheNextCommonHoliday(any(CountryCode.class), any(CountryCode.class), any(LocalDate.class)))
-                .thenReturn(getCommonHoliday());;
-
         ResponseEntity<?> response = holidayController.getTheNextCommonHoliday("AR", "AR", "2019-02-89");
 
         assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
         assertEquals(response.getBody(), "Text '2019-02-89' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 89");
-    }
-
-    private CommonHolidayDto getCommonHoliday() {
-        CommonHolidayDto commonHoliday = new CommonHolidayDto();
-        commonHoliday.setDate(LocalDate.of(2019, 03, 05));
-        commonHoliday.setName1("Carnaval");
-        commonHoliday.setName2("Huge carnaval");
-        return commonHoliday;
     }
 }
