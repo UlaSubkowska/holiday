@@ -3,7 +3,6 @@ package com.bs.holiday.controller;
 import com.bs.holiday.errorHandling.BadRequestException;
 import com.bs.holiday.model.CommonHolidayDto;
 import com.bs.holiday.model.CountryCode;
-import com.bs.holiday.model.HolidayEntity;
 import com.bs.holiday.service.HolidayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,13 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.List;
 
 @RestController
 public class HolidayController {
 
     @Autowired
-    HolidayService holidayService;
+    private HolidayService holidayService;
 
     @GetMapping("/")
     public String index() {
@@ -61,12 +59,5 @@ public class HolidayController {
         } catch (DateTimeParseException e) {
             throw new BadRequestException(e.getMessage());
         }
-    }
-
-
-    //TODO remove: temporary for bootstrap
-    @GetMapping("/passing")
-    public List<HolidayEntity> passing() {
-        return holidayService.passing();
     }
 }
