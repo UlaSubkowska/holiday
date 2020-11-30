@@ -25,7 +25,6 @@ public class HolidayController {
         return "Hey, it's start page for holiday service. Please use /nextCommonHoliday endpoint.";
     }
 
-    //TODO consider some better error handling solution
     @GetMapping("/nextCommonHoliday")
     public ResponseEntity<?> getTheNextCommonHoliday(
             @RequestParam("countryCode1") String countryCode1,
