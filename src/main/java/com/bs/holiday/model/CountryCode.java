@@ -76,9 +76,55 @@ public enum CountryCode {
     LU("Luxembourg"),
     LV("Latvia"),
 
+    MA("Morocco"),
+    MC("Monaco"),
+    MD("Moldova"),
+    MG("Madagascar"),
+    MK("North Macedonia"),
+    MN("Mongolia"),
+    MT("Malta"),
+    MX("Mexico"),
+    MZ("Mozambique"),
 
+    NA("Namibia"),
+    NE("Nigeria"),
+    NI("Nicaragua"),
+    NL("Netherlands"),
+    NO("Norway"),
+    NZ("New Zealand"),
+
+    PA("Panama"),
+    PE("Peru"),
     PL("Poland"),
-    US("United States");
+    PR("Puerto Rico"),
+    PT("Portugal"),
+    PY("Paraguay"),
+
+    RO("Romania"),
+    RS("Serbia"),
+    RU("Russian Federation"),
+
+    SE("Sweden"),
+    SI("Slovenia"),
+    SJ("Svalbard and Jan Mayen"),
+    SK("Slovakia"),
+    SM("San Marino"),
+    SR("Suriname"),
+    SV("El Salvador"),
+
+    TN("Tunisia"),
+    TR("Turkey"),
+
+    UA("Ukraine"),
+    US("United States"),
+    UY("Uruguay"),
+
+    VA("Holy See"),
+    VE("Venezuela"),
+    VN("Viet Nam"),
+
+    ZA("South Africa"),
+    ZW("Zimbabwe");
 
     private final String countryName;
 }
